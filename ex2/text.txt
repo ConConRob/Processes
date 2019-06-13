@@ -1,0 +1,3 @@
+This is before fork
+This is the parent fork
+This is the child fork
