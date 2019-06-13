@@ -46,7 +46,7 @@ int main(void)
     else
     {
         // parent
-        waitpid(rc);
+        waitpid(rc, NULL, 0);
         printf("parent(%i):\n", rc);
         fprintf(text_file, "This is the parent fork\n");
         print_file(text_file);

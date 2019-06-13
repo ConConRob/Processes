@@ -31,7 +31,7 @@ int main(void)
     else
     {
         // parent
-        waitpid(rc);
+        waitpid(rc, NULL, 0);
         printf("parent(%i): %i\n", rc, x);
         x = 50;
     }

@@ -10,6 +10,22 @@
 int main(void)
 {
     // Your code here
-
+    int rc = fork();
+    if (rc == -1)
+    {
+        printf("fork failed");
+        exit(1);
+    }
+    else if (rc == 0)
+    {
+        // child
+        printf("Hello from the child\n");
+    }
+    else
+    {
+        // parent
+        waitpid(rc, NULL, 0);
+        printf("Goodbye from the parent\n");
+    }
     return 0;
 }
