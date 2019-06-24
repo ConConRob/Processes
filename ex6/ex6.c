@@ -17,10 +17,23 @@ and `clock_gettime()` should work just fine.
 
 #define number_iter 1000000
 #define BILLION 1000000000L
+struct timespec requestStart, requestEnd;
 
 int main()
-{
+{   
     // Your code here
+    clock_gettime(CLOCK_REALTIME, &requestStart);
+    for(int i =0; i<BILLION; i++){
+            fprintf( stdout, "" );
+    }
+    clock_gettime(CLOCK_REALTIME, &requestEnd);
     
+    float ns = requestEnd.tv_nsec - requestStart.tv_nsec;
+    float s = requestEnd.tv_sec - requestStart.tv_sec;
+    float total_time =  s * BILLION + ns ;
+    printf(" Total time:  %.0f ns\n Avgerage time: %f ns \n", total_time, total_time/BILLION);
+
+
+
     return 0;
 }
